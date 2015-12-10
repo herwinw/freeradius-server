@@ -9,7 +9,6 @@ Build-Depends: debhelper (>= 9),
  libiodbc2-dev,
  libjson0 | libjson-c2,
  libjson0-dev | libjson-c-dev,
- libkrb5-dev | heimdal-dev,
  libldap2-dev,
  libpam0g-dev,
  libpcap-dev,
@@ -40,7 +39,7 @@ Architecture: any
 Depends: lsb-base (>= 3.1-23.2), ${shlibs:Depends}, ${misc:Depends}, ${dist:Depends}, freeradius-common, freeradius-config, libfreeradius3 (= ${binary:Version}), ssl-cert, adduser
 Provides: radius-server
 Recommends: freeradius-utils
-Suggests: freeradius-ldap, freeradius-postgresql, freeradius-mysql, freeradius-krb5, snmp
+Suggests: freeradius-ldap, freeradius-postgresql, freeradius-mysql, snmp
 Description: high-performance and highly configurable RADIUS server
  FreeRADIUS is a high-performance RADIUS server with support for:
   - Authentication by local files, SQL, Kerberos, LDAP, PAM, and more.
@@ -110,13 +109,6 @@ Architecture: any
 Depends: freeradius (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}, ${dist:Depends}
 Description: DHCP module for FreeRADIUS server
  The FreeRADIUS server can act as a DHCP server, and this module
- is necessary for that.
-
-Package: freeradius-krb5
-Architecture: any
-Depends: freeradius (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}, ${dist:Depends}
-Description: kerberos module for FreeRADIUS server
- The FreeRADIUS server can use Kerberos to authenticate users, and this module
  is necessary for that.
 
 Package: freeradius-ldap

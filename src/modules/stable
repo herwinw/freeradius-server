@@ -1,5 +1,6 @@
 rlm_always
 rlm_attr_filter
+rlm_attr_log
 rlm_cache
 rlm_chap
 rlm_counter
@@ -13,7 +14,6 @@ rlm_expiration
 rlm_expr
 rlm_files
 rlm_ippool
-rlm_krb5
 rlm_ldap
 rlm_linelog
 rlm_logintime
