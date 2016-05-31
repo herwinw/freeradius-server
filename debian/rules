@@ -97,6 +97,7 @@ endif
 		--with-rlm_sql_postgresql_lib_dir=`pg_config --libdir` \
 		--with-rlm_sql_postgresql_include_dir=`pg_config --includedir` \
 		--with-iodbc-include-dir='/usr/include/iodbc' \
+		--with-winbind-include-dir=/usr/include/samba-4.0 \
 		--without-rlm_eap_ikev2 \
 		--without-rlm_sql_oracle \
 		--without-rlm_sql_unixodbc

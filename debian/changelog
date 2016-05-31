@@ -1,3 +1,9 @@
+freeradius (3.0.15+qnet2) unstable; urgency=medium
+
+  * Compile with winbind libs
+
+ -- Herwin Weststrate <herwin@quarantainenet.nl>  Fri, 14 Oct 2016 16:02:30 +0200
+
 freeradius (3.0.15+qnet1) unstable; urgency=medium
 
   * Disable rlm_krb5, it conflicts with Samba build scripts
