@@ -5,9 +5,9 @@ set -e
 case "$1" in
   remove)
         if [ -x "`which invoke-rc.d 2>/dev/null`" ]; then
-		invoke-rc.d freeradius stop
+		invoke-rc.d freeradius stop || true
 	else
-		/etc/init.d/freeradius stop
+		/etc/init.d/freeradius stop || true
 	fi
 
         for file in /etc/freeradius/mods-config/files/pre-proxy \
