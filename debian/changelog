@@ -1,3 +1,9 @@
+freeradius (3.0.15+qnet5) unstable; urgency=medium
+
+  * Omit heartblead related dependencies as they don't work for stretch builds
+
+ -- Justin Ossevoort (Quarantainenet) <justin@quarantainenet.nl>  Fri, 15 Sep 2017 12:33:00 +0200
+
 freeradius (3.0.15+qnet4) unstable; urgency=medium
 
   * Ignore freeradius start/stop/reload errors during package updates
