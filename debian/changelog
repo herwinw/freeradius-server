@@ -1,3 +1,9 @@
+freeradius (3.0.15+qnet6) unstable; urgency=medium
+
+  * Update rlm_attr_log, don't change order or value lists in place
+
+ -- Herwin Weststrate <herwin@quarantainenet.nl>  Thu, 11 Jan 2018 10:42:24 +0100
+
 freeradius (3.0.15+qnet5) unstable; urgency=medium
 
   * Omit heartblead related dependencies as they don't work for stretch builds
