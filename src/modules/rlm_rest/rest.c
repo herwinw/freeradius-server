@@ -972,7 +972,7 @@ static ssize_t rest_request_encode_wrapper(char **buffer, rest_read_t func, size
 
 		len = func(current + used, alloc - used, 1, userdata);
 		used += len;
-		if (!len) {
+		if (userdata->state == READ_STATE_END || !len) {
 			*buffer = current;
 			return used;
 		}
