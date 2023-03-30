@@ -503,13 +503,12 @@ int mod_conn_alive(void *instance, void *handle)
  * @param[out] out Char buffer to write encoded data to.
  * @param[in] size Multiply by nmemb to get the length of ptr.
  * @param[in] nmemb Multiply by size to get the length of ptr.
- * @param[in] userdata rlm_rest_request_t to keep encoding state between calls.
+ * @param[in] ctx Keep encoding state between calls.
  * @return length of data (including NULL) written to ptr, or 0 if no more
  *	data to write.
  */
-static size_t rest_encode_custom(void *out, size_t size, size_t nmemb, void *userdata)
+static size_t rest_encode_custom(void *out, size_t size, size_t nmemb, rlm_rest_request_t *ctx)
 {
-	rlm_rest_request_t *ctx = userdata;
 	rest_custom_data_t *data = ctx->encoder;
 
 	size_t	freespace = (size * nmemb) - 1;
@@ -549,13 +548,12 @@ static size_t rest_encode_custom(void *out, size_t size, size_t nmemb, void *use
  * @param[out] out Char buffer to write encoded data to.
  * @param[in] size Multiply by nmemb to get the length of ptr.
  * @param[in] nmemb Multiply by size to get the length of ptr.
- * @param[in] userdata rlm_rest_request_t to keep encoding state between calls.
+ * @param[in] ctx Keep encoding state between calls.
  * @return length of data (including NULL) written to ptr, or 0 if no more
  *	data to write.
  */
-static size_t rest_encode_post(void *out, size_t size, size_t nmemb, void *userdata)
+static size_t rest_encode_post(void *out, size_t size, size_t nmemb, rlm_rest_request_t *ctx)
 {
-	rlm_rest_request_t	*ctx = userdata;
 	REQUEST			*request = ctx->request; /* Used by RDEBUG */
 	VALUE_PAIR		*vp;
 
@@ -738,13 +736,12 @@ no_space:
  * @param[out] out Char buffer to write encoded data to.
  * @param[in] size Multiply by nmemb to get the length of ptr.
  * @param[in] nmemb Multiply by size to get the length of ptr.
- * @param[in] userdata rlm_rest_request_t to keep encoding state between calls.
+ * @param[in] ctx Keep encoding state between calls.
  * @return length of data (including NULL) written to ptr, or 0 if no more
  *	data to write.
  */
-static size_t rest_encode_json(void *out, size_t size, size_t nmemb, void *userdata)
+static size_t rest_encode_json(void *out, size_t size, size_t nmemb, rlm_rest_request_t *ctx)
 {
-	rlm_rest_request_t	*ctx = userdata;
 	REQUEST			*request = ctx->request; /* Used by RDEBUG */
 	VALUE_PAIR		*vp, *next;
 
@@ -956,7 +953,7 @@ no_space:
  * @return the length of the data written to the buffer (excluding NULL) or -1
  *	if alloc >= limit.
  */
-static ssize_t rest_request_encode_wrapper(char **buffer, rest_read_t func, size_t limit, void *userdata)
+static ssize_t rest_request_encode_wrapper(char **buffer, rest_read_t func, size_t limit, rlm_rest_request_t *userdata)
 {
 	char *previous = NULL;
 	char *current = NULL;
