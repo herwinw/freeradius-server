@@ -57,7 +57,7 @@ things are confusing or weird in v3:
 
 * Access-Request packets were processed though an `authorize` section.  This naming goes back to 2001.
 * Run-time functions (dynamic expansions) had a syntax of `%{name: args...}`.  The reasons for this are many, but are no longer valid.
-* attributes cannot be assigned new values like normal programming languatges.  You have to use an `update` section.
+* attributes cannot be assigned new values like normal programming languages.  You have to use an `update` section.
 * Expressions are not supported.  You can't do `foo = 1 + 2`.  You have to do `update { foo = %{expr: 1 + 2} }`.  This is pretty terrible.
 * Proxying is welded into the server core, which makes it difficult to run policies around proxying.
   * There is a `fallback` configuration, but this is specific to proxying, and doesn't use the normal module failover mechanisms
